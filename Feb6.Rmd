@@ -1,0 +1,28 @@
+---
+title: "Feb6"
+author: "Tracie-Lynn Lamoreux"
+date: "2023-02-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+EuclideanNorm = function(x){
+  res = sqrt(sum(x^2))
+  return(res)
+}
+EuclideanNorm(c(1:5))
+```
+
+Write a loop function to calculate the Euclidean Norm of a vector
+
+```{r}
+x = c(3:16)
+d = 0
+for (i in 1 : length(x)){
+  d = d + x[i]^2
+  cat("Iteration =", i,  "value of x = ", x[i],"value of d =",d, "\n")
+}
+sqrt(d)
+```
+
