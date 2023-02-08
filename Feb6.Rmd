@@ -24,5 +24,52 @@ for (i in 1 : length(x)){
   cat("Iteration =", i,  "value of x = ", x[i],"value of d =",d, "\n")
 }
 sqrt(d)
+d
+
 ```
+
+Question 4
+```{r}
+myvar = function(x){
+  n = length(x) ##sample size of x
+  xbar = sum(x) / n
+  x.centered=x-xbar
+  res = sum(x.centered^2)/(n-1)
+  return(res)
+}
+myvar(x)
+```
+Question 5
+
+```{r}
+theta1 = function(x){
+  res=mean(x)^2
+  return(res)
+}
+theta2 = function(x){
+  n = length(x)
+  res = (sum(x)^2 - sum(x^2)) / (n * (n-1)) ###first is squared summation
+  return(res)
+  
+}
+###simulation: suppose the sample size is 20 , simulate from normal distribution where mean (5) var (1)
+diff1=c()
+diff2=c()
+for (rep in 1:1000){
+  z= rnorm(20,5,1)
+  diff1[rep] = theta1(z) - 25
+  diff2[rep] = theta2(z) - 25
+  
+}
+
+hist(diff1)
+hist(diff2)
+
+```
+
+
+
+
+
+
 
